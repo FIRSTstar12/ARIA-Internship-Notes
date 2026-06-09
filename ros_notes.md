@@ -25,3 +25,44 @@ Run both of these things
 source /opt/ros/jazzy/setup.bash
 ros2 run turtlesim turtlesim_node
 ```
+
+## Making the turtel move
+
+**Moving the turtel in a straight line**
+
+```bash
+ros2 topic pub --once /turtle1/cmd_vel geometry_msgs/msg/Twist "{linear: {x: 2.0}, angular: {z: 0.0}}"
+```
+- `ros2 topic pub` = Tells ROS2, publish (send) a message.
+
+- `--once` = Send it just one time, then stop.
+
+- `/turtle1/cmd_vel` = The "channel" this message is sent to. Think of it like a radio frequency — the turtle is tuned in and listening here for movement instructions. 
+
+- `cmd_vel` = command velocity
+
+- `geometry_msgs/msg/Twist` =  The type of message being sent — one that describes motion using speed and turning.
+
+- `{linear: {x: 2.0}, angular: {z: 0.0}}` = The actual instruction:
+  - linear x: 2.0 → move forward at speed 2
+  - angular z: 0.0 → no turning (go straight)
+
+**Making the turtel go in a circle**
+
+```bash
+ros2 topic pub --rate 5 /turtle1/cmd_vel geometry_msgs/msg/Twist "{linear: {x: 1.0}, angular: {z: 1.0}}"
+```
+
+- `ros2 topic pub` = Tells ROS2, publish (send) a message.
+
+- `--rate 5` = Sends the command 5 times per second
+
+- `/turtle1/cmd_vel` = The "channel" this message is sent to. Think of it like a radio frequency — the turtle is tuned in and listening here for movement instructions.
+
+- `cmd_vel` = command velocity
+
+- `geometry_msgs/msg/Twist` =  The type of message being sent — one that describes motion using speed and turning.
+
+- `{linear: {x: 1.0}, angular: {z: 1.0}}` = The actual instruction:
+  - linear x: 1.0 → move forward at speed 1
+  - angular z: 1.0 → turn at the same time
