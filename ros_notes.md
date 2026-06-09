@@ -14,3 +14,5 @@ You can check your ID with this command
 ```bash
 echo $ROS_DOMAIN_ID
 ```
+
+**You need to reopen your terminal to see the ID change**
