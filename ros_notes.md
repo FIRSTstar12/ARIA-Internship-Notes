@@ -26,9 +26,9 @@ source /opt/ros/jazzy/setup.bash
 ros2 run turtlesim turtlesim_node
 ```
 
-## Making the turtel move
+# Making the turtel move
 
-**Moving the turtel in a straight line**
+## Moving the turtel in a straight line
 
 ```bash
 ros2 topic pub --once /turtle1/cmd_vel geometry_msgs/msg/Twist "{linear: {x: 2.0}, angular: {z: 0.0}}"
@@ -47,7 +47,7 @@ ros2 topic pub --once /turtle1/cmd_vel geometry_msgs/msg/Twist "{linear: {x: 2.0
   - linear x: 2.0 → move forward at speed 2
   - angular z: 0.0 → no turning (go straight)
 
-**Making the turtel go in a circle**
+## Making the turtel go in a circle
 
 ```bash
 ros2 topic pub --rate 5 /turtle1/cmd_vel geometry_msgs/msg/Twist "{linear: {x: 1.0}, angular: {z: 1.0}}"
@@ -66,3 +66,45 @@ ros2 topic pub --rate 5 /turtle1/cmd_vel geometry_msgs/msg/Twist "{linear: {x: 1
 - `{linear: {x: 1.0}, angular: {z: 1.0}}` = The actual instruction:
   - linear x: 1.0 → move forward at speed 1
   - angular z: 1.0 → turn at the same time
+
+## Turtle Keyboard Controls
+ 
+Launch command:
+```
+ros2 run teleop_twist_keyboard teleop_twist_keyboard --ros-args -r cmd_vel:=/turtle1/cmd_vel
+```
+
+ 
+## Movement Keys
+ 
+| Key | Action |
+|-----|--------|
+| `i` | Forward |
+| `,` | Backward |
+| `j` | Turn left |
+| `l` | Turn right |
+| `u` `o` `m` `.` | Diagonal moves |
+ 
+---
+ 
+## Stop
+ 
+| Key | Action |
+|-----|--------|
+| `k` | Stop completely |
+ 
+---
+ 
+## Speed Adjustments
+ 
+| Key | Action |
+|-----|--------|
+| `q` / `z` | Increase / decrease both speeds |
+| `w` / `x` | Increase / decrease forward speed only |
+| `e` / `c` | Increase / decrease turn speed only |
+ 
+---
+ 
+## Quit
+ 
+Press `Ctrl + C` to exit.
