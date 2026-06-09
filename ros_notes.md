@@ -16,3 +16,12 @@ echo $ROS_DOMAIN_ID
 ```
 
 **You need to reopen your terminal to see the ID change**
+
+## Running turtel sim
+
+Run both of these things
+
+```bash
+source /opt/ros/jazzy/setup.bash
+ros2 run turtlesim turtlesim_node
+```
